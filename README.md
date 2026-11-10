@@ -1,5 +1,9 @@
 # LX04Cast
 
+> **EN** — Minimal, low-memory AirPlay + DLNA audio receiver for the Xiaomi LX04 touchscreen speaker. Two-page player, synced lyrics, XiaoAi voice controls. GPL-3.0.
+>
+> **中文** — 面向小爱触屏音箱的极简低内存 AirPlay / DLNA 音频接收器：双页播放器、同步歌词、小爱语音控制，GPL-3.0。
+
 小爱触屏音箱（第一代）不支持 DLNA/AirPlay，于是写了一个只做音频投送的小工具。
 
 它不做视频、不做屏幕镜像，只处理两件事：
