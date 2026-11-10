@@ -22,6 +22,16 @@
   <img src="docs/screenshots/settings.png" width="49%" alt="设置页" />
 </p>
 
+## 小爱同学支持
+
+- 语音控制：**“小爱同学，暂停播放 / 继续播放 / 退出播放”**
+- 播放中保持 MediaSession；暂停后保留可恢复状态
+- 通过 MediaSession、媒体按钮和音频焦点兜底，尽量兼容 Mico 不向第三方应用发送媒体命令的固件
+- DLNA 与 AirPlay 均支持暂停/继续；AirPlay 上一首/下一首取决于发送端 DACP
+- 系统的媒体键、媒体通知和播放页按钮同样可用
+
+> 不同 Mico 固件的语音媒体路由不同；实际响应以设备为准。
+
 ## 功能
 
 - **AirPlay 音频接收**：AirPlay 1，UxPlay/FairPlay 原生解码。
