@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="device_name"
+        android:title="@string/settings_name_label"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="airplay_enabled"
+        android:title="@string/airplay_receive"
+        android:summary="@string/airplay_summary"
+        android:defaultValue="true"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="dlna_enabled"
+        android:title="@string/dlna_receive"
+        android:summary="@string/dlna_summary"
+        android:defaultValue="true"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="boot_autostart"
+        android:title="@string/boot_autostart"
+        android:summary="@string/boot_summary"
+        android:defaultValue="true"
+        android:persistent="false" />
+</PreferenceScreen>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LX04Cast" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:colorAccent">#FF3B4E</item>
+        <item name="android:windowBackground">#0B0D12</item>
+        <item name="android:statusBarColor">#0B0D12</item>
+        <item name="android:navigationBarColor">#0B0D12</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:fontFamily">sans</item>
+    </style>
+
+    <!-- Native preference list, edge-to-edge on the 800x480 panel: the stock
+         DeviceDefault title/status bars otherwise waste ~90 px of the short screen.
+         Keep the rest of the platform styling (and its lightweight widgets) untouched. -->
+    <style name="Theme.LX04Cast.Settings" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.LX04Cast.Player" parent="Theme.LX04Cast">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>

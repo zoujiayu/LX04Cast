@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">小爱触屏音箱</string>
+    <string name="settings_label">设置</string>
+    <string name="settings_name_label">设备名称</string>
+    <string name="airplay_receive">AirPlay 音频接收</string>
+    <string name="airplay_summary">接收 iPhone / Mac 的 AirPlay 音频</string>
+    <string name="dlna_receive">DLNA 音频接收</string>
+    <string name="dlna_summary">接收网易云 / QQ 音乐等的 DLNA 音频</string>
+    <string name="boot_autostart">开机后台自启</string>
+    <string name="boot_summary">开机后自动在后台启动接收服务</string>
+    <string name="receiver_off">接收已关闭</string>
+    <string name="waiting">等待投送</string>
+    <string name="unknown_artist">未知艺术家</string>
+    <string name="idle_artist_fmt">在投送列表中选择「%1$s」</string>
+    <string name="lyrics_loading">歌词加载中…</string>
+    <string name="no_lyrics">暂无歌词</string>
+    <string name="play_pause">播放 / 暂停</string>
+    <string name="previous">上一首</string>
+    <string name="next">下一首</string>
+    <string name="skip_unavailable">当前发送端不支持切歌</string>
+    <string name="dlna_skip_unavailable">DLNA 由手机端控制，请在手机上切歌</string>
+    <string name="show_controls">显示控制栏</string>
+    <string name="notification_channel">投送服务</string>
+</resources>

@@ -1,0 +1,58 @@
+name: Publish GitHub Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/lib/android/sdk}}"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_HOME=$SDK_ROOT" >> "$GITHUB_ENV"
+          if [ -x "$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" ]; then
+            SDKM="$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          else
+            SDKM="$(command -v sdkmanager)"
+          fi
+          yes | "$SDKM" --licenses >/dev/null || true
+          "$SDKM" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build release APK
+        run: chmod +x gradlew && ./gradlew assembleRelease --no-daemon
+
+      - name: Prepare release assets
+        run: |
+          mkdir -p dist
+          version="${GITHUB_REF_NAME#v}"
+          cp app/build/outputs/apk/release/app-release.apk "dist/LX04Cast-${version}.apk"
+          git archive --format=zip --prefix="LX04Cast-${version}/" -o "dist/LX04Cast-${version}-source.zip" HEAD
+          (cd dist && sha256sum "LX04Cast-${version}.apk" "LX04Cast-${version}-source.zip" > SHA256SUMS.txt)
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
